@@ -1,0 +1,82 @@
+{
+  "clientes": [
+    {
+      "id": 2,
+      "nomeCliente": "Miguel Artur 28",
+      "cpf": "13651455",
+      "dataNascimento": "1997-10-10",
+      "codigoCidade": "1",
+      "pais": "Brasil",
+      "endereco": "R. Paraíba",
+      "numeroCasa": "675",
+      "bairro": "Santa Ed",
+      "numeroTelefone": "35998445408",
+      "numeroCelular": "35998445408",
+      "emailCliente": "miguel9tp@hotmail.com"
+    },
+    {
+      "id": 3,
+      "nomeCliente": "Miguel Artur Corrêa142",
+      "cpf": "136.661.436-44",
+      "dataNascimento": "2024-01-01",
+      "codigoCidade": 1,
+      "pais": "Brasil",
+      "endereco": "675 Rua Paraíba",
+      "numeroCasa": 2,
+      "bairro": "Santa Edwiges",
+      "numeroTelefone": "35998445408",
+      "numeroCelular": "35998445408",
+      "emailCliente": "miguel.3tp@hotmail.com"
+    },
+    {
+      "id": 4,
+      "nomeCliente": "Miguel Artur Corrêa142",
+      "cpf": "136.661.436-44",
+      "dataNascimento": "2024-01-01",
+      "codigoCidade": 1,
+      "pais": "Brasil",
+      "endereco": "675 Rua Paraíba",
+      "numeroCasa": 2,
+      "bairro": "Santa Edwiges",
+      "numeroTelefone": "35998445408",
+      "numeroCelular": "35998445408",
+      "emailCliente": "miguel.3tp@hotmail.com"
+    },
+    {
+      "id": 5,
+      "nomeCliente": "Miguel Artur Corrêa1241",
+      "cpf": "136.661.436-44",
+      "dataNascimento": "2024-01-01",
+      "codigoCidade": 1,
+      "pais": "Brasil",
+      "endereco": "675 Rua Paraíba",
+      "numeroCasa": 1,
+      "bairro": "Santa Edwiges",
+      "numeroTelefone": "35998445408",
+      "numeroCelular": "35998445408",
+      "emailCliente": "miguel.3tp@hotmail.com"
+    }
+  ],
+  "cidades": [
+    {
+      "id": 1,
+      "cidade": "Três Pontas",
+      "estado": "MG",
+      "ibge": "214214"
+    },
+    {
+      "id": 2,
+      "cidade": "Três Pontas",
+      "estado": "MG",
+      "ibge": "214214"
+    }
+  ],
+  "usuario": [
+    {
+      "id": 1,
+      "email": "usuario@hotmail.com",
+      "senha": "123456",
+      "tipo": "vendedor"
+    }
+  ]
+}

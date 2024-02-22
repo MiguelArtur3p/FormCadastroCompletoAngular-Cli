@@ -1,0 +1,18 @@
+<div class="m-5">
+   <form [formGroup]="loginForm" class="mt-4 col-md-6 p-3 shadow border">
+      <h1 class="mb-3 text-center">Faça Login</h1>
+      <div class="row mb-3">
+         <label for="email" class="form-label">Email</label>
+         <div class="col-md">
+            <input type="email" class="form-control" formControlName="email" id="email">
+         </div>
+      </div>
+      <div class="row mb-3">
+         <label for="senha" class="form-label">Senha</label>
+         <div class="col-md">
+            <input type="password" class="form-control" formControlName="senha" id="senha">
+         </div>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="fazerLogin()">Entrar</button>
+   </form>
+</div>
