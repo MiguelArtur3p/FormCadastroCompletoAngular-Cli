@@ -14,18 +14,18 @@ import { SharedService } from './shared/sharedServices/shared.service';
 import { ClienteService } from './cliente/clienteServices/cliente.service';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    MenuLateralModule,
-    ReactiveFormsModule,
-    RouterModule,
-    MatSlideToggleModule,
-    SharedModule
-  ],
-  bootstrap: [AppComponent],
-  providers: [UsuarioService, CidadeService, SharedService, ClienteService],
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        MenuLateralModule,
+        ReactiveFormsModule,
+        RouterModule,
+        MatSlideToggleModule,
+        SharedModule
+    ],
+    bootstrap: [AppComponent],
+    providers: [UsuarioService, CidadeService, SharedService, ClienteService],
 })
 export class AppModule { }

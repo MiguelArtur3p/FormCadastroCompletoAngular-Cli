@@ -8,14 +8,14 @@ import { CidadeService } from './cidadeServices/cidade.service';
 import { CidadeRoutingModule } from './cidadeRotas/cidade.routing.module';
 
 @NgModule({
-  declarations: [CidadeListComponent, CidadeFormComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    CidadeRoutingModule,
-  ],
-  exports:[CidadeListComponent,CidadeFormComponent],
-  providers: [CidadeService],
+    declarations: [CidadeListComponent, CidadeFormComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        CidadeRoutingModule,
+    ],
+    exports: [CidadeListComponent, CidadeFormComponent],
+    providers: [CidadeService],
 })
-export class CidadeModule {}
+export class CidadeModule { }

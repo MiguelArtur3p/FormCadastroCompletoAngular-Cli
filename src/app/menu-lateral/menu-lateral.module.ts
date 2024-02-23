@@ -9,14 +9,14 @@ import { ClienteRoutingModule } from '../cliente/clienteRotas/cliente.routing.mo
 import { CidadeRoutingModule } from '../cidade/cidadeRotas/cidade.routing.module';
 
 @NgModule({
-  declarations: [NavbarComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    BrowserModule,
-    ClienteRoutingModule,
-    CidadeRoutingModule,
-  ],
-  exports: [NavbarComponent],
+    declarations: [NavbarComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        BrowserModule,
+        ClienteRoutingModule,
+        CidadeRoutingModule,
+    ],
+    exports: [NavbarComponent],
 })
-export class MenuLateralModule {}
+export class MenuLateralModule { }

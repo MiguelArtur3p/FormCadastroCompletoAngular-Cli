@@ -1,17 +1,17 @@
 import {
-  ActivatedRouteSnapshot,
-  CanActivateFn,
-  Router,
-  RouterStateSnapshot,
+    ActivatedRouteSnapshot,
+    CanActivateFn,
+    Router,
+    RouterStateSnapshot,
 } from '@angular/router';
 import { inject } from '@angular/core';
 import { UsuarioService } from '../usuario/services/usuario.service';
 
 export const authGuard: CanActivateFn = (
-  route: ActivatedRouteSnapshot,
-  state: RouterStateSnapshot
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
 ) => {
-  return inject(UsuarioService).obterUsuarioLogado()
-    ? true
-    : inject(Router).createUrlTree(['/login']);
+    return inject(UsuarioService).obterUsuarioLogado()
+        ? true
+        : inject(Router).createUrlTree(['/login']);
 };

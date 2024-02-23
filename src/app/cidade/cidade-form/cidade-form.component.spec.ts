@@ -3,20 +3,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CidadeFormComponent } from './cidade-form.component';
 
 describe('CidadeFormComponent', () => {
-  let component: CidadeFormComponent;
-  let fixture: ComponentFixture<CidadeFormComponent>;
+    let component: CidadeFormComponent;
+    let fixture: ComponentFixture<CidadeFormComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [CidadeFormComponent],
-    }).compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [CidadeFormComponent],
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(CidadeFormComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(CidadeFormComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

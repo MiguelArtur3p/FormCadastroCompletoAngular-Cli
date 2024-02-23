@@ -1,4 +1,4 @@
-export interface  IFormCanDeactivate
+export interface IFormCanDeactivate 
 {
-   desativarRota():boolean;
+    desativarRota(): boolean;
 }

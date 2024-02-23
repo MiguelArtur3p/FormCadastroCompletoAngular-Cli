@@ -27,17 +27,17 @@ export class CidadeFormComponent implements OnInit, IFormCanDeactivate
    {
     this.cidadeForm = this._formBuilder.group
     ({
-      id: [''],
-      cidade: ['', Validators.required],
-      estado: ['', Validators.required],
-      ibge: ['', Validators.required],
+        id: [''],
+        cidade: ['', Validators.required],
+        estado: ['', Validators.required],
+        ibge: ['', Validators.required],
     });
   }
 
   obterParametrosRota() 
   {
-    this.id = this._route.snapshot.params['id'];
-    this.operacao = this._route.snapshot.url[1].path;
+        this.id = this._route.snapshot.params['id'];
+        this.operacao = this._route.snapshot.url[1].path;
   }
 
   redirecionarParaPesquisa() 

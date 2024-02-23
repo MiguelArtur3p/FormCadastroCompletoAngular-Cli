@@ -7,8 +7,8 @@ import { UsuarioRoutingModule } from './usuarioRotas/usuario-routing.module';
 import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
-  declarations: [LoginFormComponent],
-  imports: [CommonModule, UsuarioRoutingModule, ReactiveFormsModule, FormsModule],
-  exports: [LoginFormComponent],
+    declarations: [LoginFormComponent],
+    imports: [CommonModule, UsuarioRoutingModule, ReactiveFormsModule, FormsModule],
+    exports: [LoginFormComponent],
 })
-export class UsuarioModule {}
+export class UsuarioModule { }

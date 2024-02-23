@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginFormComponent } from '../login-form/login-form.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginFormComponent },
-  { path: '', component: LoginFormComponent },
+    { path: 'login', component: LoginFormComponent },
+    { path: '', component: LoginFormComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class UsuarioRoutingModule {}
+export class UsuarioRoutingModule { }

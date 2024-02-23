@@ -5,29 +5,29 @@ import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao
 import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  {
-    path: 'cliente',
-    loadChildren: () =>
-      import('./cliente/cliente.module').then((m) => m.ClienteModule),
-    canActivate: [authGuard],
-  },
-  {
-    path: 'cidade',
-    loadChildren: () =>
-      import('./cidade/cidade.module').then((m) => m.CidadeModule),
-    canActivate: [authGuard],
-  },
-  {
-    path: '',
-    loadChildren: () =>
-      import('./usuario/usuario.module').then((m) => m.UsuarioModule),
-  },
-  // { path: '**', component: PaginaNaoEncontradaComponent },
+    {
+        path: 'cliente',
+        loadChildren: () =>
+            import('./cliente/cliente.module').then((m) => m.ClienteModule),
+        canActivate: [authGuard],
+    },
+    {
+        path: 'cidade',
+        loadChildren: () =>
+            import('./cidade/cidade.module').then((m) => m.CidadeModule),
+        canActivate: [authGuard],
+    },
+    {
+        path: '',
+        loadChildren: () =>
+            import('./usuario/usuario.module').then((m) => m.UsuarioModule),
+    },
+    // { path: '**', component: PaginaNaoEncontradaComponent },
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

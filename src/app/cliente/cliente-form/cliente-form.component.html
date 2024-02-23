@@ -1,120 +1,121 @@
 <div class="container shadow p-4">
-   <div>
-      <form [formGroup]="clienteForm">
-         <div class="row mb-3">
-            <div class="col-md-1">
-               <label for="id" class="form-label">Código</label>
-               <input type="text" id="id" formControlName="id" readonly class="form-control">
+    <div>
+        <form [formGroup]="clienteForm">
+            <div class="row mb-3">
+                <div class="col-md-1">
+                    <label for="id" class="form-label">Código</label>
+                    <input type="text" id="id" formControlName="id" readonly class="form-control">
+                </div>
+                <div class="col-md-5">
+                    <label for="nomeCliente" class="form-label">Nome</label>
+                    <input type="text" formControlName="nomeCliente" id="nomeCliente" class="form-control">
+                    <ng-container *ngIf="clienteForm.controls['nomeCliente'].touched">
+                        <span *ngIf="clienteForm.controls['nomeCliente'].errors" class="position-absolute form-text text-danger">Preencha este campo
+                        </span>
+                    </ng-container>
+                </div>
+                <div class="col-md-3">
+                    <label for="cpf" class="form-label">CPF</label>
+                    <input type="text" formControlName="cpf" id="cpf" class="form-control">
+                    <ng-container *ngIf="clienteForm.controls['cpf'].touched">
+                        <span *ngIf="clienteForm.controls['cpf'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
+                    </ng-container>
+                </div>
+                <div class="col-md-3">
+                    <label for="dataNascimento" class="form-label text-nowrap">Data de Nascimento</label>
+                    <input type="date" formControlName="dataNascimento" id="dataNascimento" class="form-control">
+                    <ng-container *ngIf="clienteForm.controls['dataNascimento'].touched">
+                        <span *ngIf="clienteForm.controls['dataNascimento'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
+                    </ng-container>
+                </div>
             </div>
-            <div class="col-md-5">
-               <label for="nomeCliente" class="form-label">Nome</label>
-               <input type="text" formControlName="nomeCliente" id="nomeCliente" class="form-control">
-               <ng-container *ngIf="clienteForm.controls['nomeCliente'].touched">
-                  <span *ngIf="clienteForm.controls['nomeCliente'].errors" class="position-absolute form-text text-danger">Preencha este campo
-                  </span>
-               </ng-container>
-            </div>
-            <div class="col-md-3">
-               <label for="cpf" class="form-label">CPF</label>
-               <input type="text" formControlName="cpf" id="cpf" class="form-control">
-               <ng-container *ngIf="clienteForm.controls['cpf'].touched">
-                  <span *ngIf="clienteForm.controls['cpf'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
-               </ng-container>
-            </div>
-            <div class="col-md-3">
-               <label for="dataNascimento" class="form-label text-nowrap">Data de Nascimento</label>
-               <input type="date" formControlName="dataNascimento" id="dataNascimento" class="form-control">
-               <ng-container *ngIf="clienteForm.controls['dataNascimento'].touched">
-                  <span *ngIf="clienteForm.controls['dataNascimento'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
-               </ng-container>
-            </div>
-         </div>
-         <div class="row mb-3">
-            <div class="col-md-2">
-               <label for="codigoCidade" class="form-label text-nowrap">Código da Cidade</label>
-               <input type="number" id="codigoCidade" #inputCodigoCidade formControlName="codigoCidade" min="1" (input)="obterCidade(inputCodigoCidade.value)" class="form-control">
-               <ng-container *ngIf="clienteForm.controls['codigoCidade'].touched">
-                  <span *ngIf="clienteForm.controls['codigoCidade'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
-               </ng-container>
-            </div>
-            <div class="col-md-1">
-               <button (click)="openDialog()" class="btn mt-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                  </svg></button>
-            </div>
-            <div class="col-md">
-               <label for="cidade" class="form-label">Cidade</label>
-               <input type="text" #inputCidade id="cidade" readonly class="form-control">
-               <span class="form-text text-danger text-nowrap position-absolute px-2" *ngIf="cidadeNaoEncontrada">Cidade não encontrada</span>
-            </div>
-            <div class="col-md">
-               <label for="estado" class="form-label">Estado</label>
-               <input readonly #inputEstado class="form-control" id="estado">
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <label for="codigoCidade" class="form-label text-nowrap">Código da Cidade</label>
+                        <input type="number" id="codigoCidade" #inputCodigoCidade formControlName="codigoCidade" aria-describedby="modalPesquisarCidade" min="1" (input)="obterCidade(inputCodigoCidade.value)" class="form-control">
+                        <button type="button" (click)="openDialog()" id="modalPesquisarCidade" class="btn btn-outline-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            </svg>
+                        </button>
+                    </div>
+                    <ng-container *ngIf="clienteForm.controls['codigoCidade'].touched">
+                        <span *ngIf="clienteForm.controls['codigoCidade'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
+                    </ng-container>
+                </div>
 
-            </div>
-            <div class="col-md">
-               <label for="pais" class="form-label">País</label>
-               <input type="text" formControlName="pais" id="pais" class="form-control">
-               <ng-container *ngIf="clienteForm.controls['pais'].touched">
-                  <span *ngIf="clienteForm.controls['pais'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
-               </ng-container>
+                <div class="col-md">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" #inputCidade id="cidade" disabled class="form-control">
+                    <span class="form-text text-danger text-nowrap position-absolute px-2" *ngIf="cidadeNaoEncontrada">Cidade não encontrada</span>
+                </div>
+                <div class="col-md">
+                    <label for="estado" class="form-label">Estado</label>
+                    <input readonly #inputEstado class="form-control" disabled id="estado">
 
+                </div>
+                <div class="col-md">
+                    <label for="pais" class="form-label">País</label>
+                    <input type="text" formControlName="pais" id="pais" class="form-control">
+                    <ng-container *ngIf="clienteForm.controls['pais'].touched">
+                        <span *ngIf="clienteForm.controls['pais'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
+                    </ng-container>
+                </div>
             </div>
-         </div>
-         <div class="row mb-3">
-            <div class="col-md-6">
-               <label for="endereco" class="form-label">Endereço</label>
-               <input type="text" formControlName="endereco" id="endereco" class="form-control">
-               <ng-container *ngIf="clienteForm.controls['endereco'].touched">
-                  <span *ngIf="clienteForm.controls['endereco'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
-               </ng-container>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="endereco" class="form-label">Endereço</label>
+                    <input type="text" formControlName="endereco" id="endereco" class="form-control">
+                    <ng-container *ngIf="clienteForm.controls['endereco'].touched">
+                        <span *ngIf="clienteForm.controls['endereco'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
+                    </ng-container>
+                </div>
+                <div class="col-md-2">
+                    <label for="numeroCasa" class="form-label">N.º</label>
+                    <input type="number" formControlName="numeroCasa" min="0" id="numeroCasa" class="form-control">
+                    <ng-container *ngIf="clienteForm.controls['numeroCasa'].touched">
+                        <span *ngIf="clienteForm.controls['numeroCasa'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
+                    </ng-container>
+                </div>
+                <div class="col-md-4">
+                    <label for="bairro" class="form-label">Bairro</label>
+                    <input type="text" formControlName="bairro" id="bairro" class="form-control">
+                    <ng-container *ngIf="clienteForm.controls['bairro'].touched">
+                        <span *ngIf="clienteForm.controls['bairro'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
+                    </ng-container>
+                </div>
             </div>
-            <div class="col-md-2">
-               <label for="numeroCasa" class="form-label">N.º</label>
-               <input type="number" formControlName="numeroCasa" min="0" id="numeroCasa" class="form-control">
-               <ng-container *ngIf="clienteForm.controls['numeroCasa'].touched">
-                  <span *ngIf="clienteForm.controls['numeroCasa'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
-               </ng-container>
+            <div class="row">
+                <div class="col">
+                    <label for="numeroTelefone" class="form-label">Telefone</label>
+                    <input type="text" formControlName="numeroTelefone" id="numeroTelefone" class="form-control">
+                    <ng-container *ngIf="clienteForm.controls['numeroTelefone'].touched">
+                        <span *ngIf="clienteForm.controls['numeroTelefone'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
+                    </ng-container>
+                </div>
+                <div class="col">
+                    <label for="numeroCelular" class="form-label">Celular</label>
+                    <input type="text" formControlName="numeroCelular" id="numeroCelular" class="form-control">
+                    <ng-container *ngIf="clienteForm.controls['numeroCelular'].touched">
+                        <span *ngIf="clienteForm.controls['numeroCelular'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
+                    </ng-container>
+                </div>
+                <div class="col-md-6 col">
+                    <label for="emailCliente" class="form-label">Email</label>
+                    <input type="email" formControlName="emailCliente" id="emailCliente" class="form-control">
+                    <ng-container *ngIf="clienteForm.controls['emailCliente'].touched">
+                        <span *ngIf="clienteForm.controls['emailCliente'].errors?.['required']" class="position-absolute form-text text-danger">Preencha este campo</span>
+                        <span *ngIf="clienteForm.controls['emailCliente'].errors?.['email']" class="position-absolute form-text text-danger">Digite um email válido</span>
+                    </ng-container>
+                </div>
             </div>
-            <div class="col-md-4">
-               <label for="bairro" class="form-label">Bairro</label>
-               <input type="text" formControlName="bairro" id="bairro" class="form-control">
-               <ng-container *ngIf="clienteForm.controls['bairro'].touched">
-                  <span *ngIf="clienteForm.controls['bairro'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
-               </ng-container>
+            <div class="mt-4">
+                <button class="btn btn-primary" [disabled]="!clienteForm.valid" *ngIf="operacao==='adicionar'" (click)="adicionar()">Salvar</button>
+                <button class="btn btn-primary" [disabled]="!clienteForm.valid" *ngIf="operacao=='editar'" (click)="editar()">Salvar</button>
+                <button class="btn btn-danger" *ngIf="operacao=='remover'" (click)="remover()">Excluir</button>
+                <button class="btn btn-secondary m-2" *ngIf="operacao=='detalhes'" routerLink="/cliente">Voltar</button>
+                <button class="btn btn-secondary m-2" *ngIf="operacao!=='detalhes'" routerLink="/cliente">Cancelar</button>
             </div>
-         </div>
-         <div class="row">
-            <div class="col">
-               <label for="numeroTelefone" class="form-label">Telefone</label>
-               <input type="text" formControlName="numeroTelefone" id="numeroTelefone" class="form-control">
-               <ng-container *ngIf="clienteForm.controls['numeroTelefone'].touched">
-                  <span *ngIf="clienteForm.controls['numeroTelefone'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
-               </ng-container>
-            </div>
-            <div class="col">
-               <label for="numeroCelular" class="form-label">Celular</label>
-               <input type="text" formControlName="numeroCelular" id="numeroCelular" class="form-control">
-               <ng-container *ngIf="clienteForm.controls['numeroCelular'].touched">
-                  <span *ngIf="clienteForm.controls['numeroCelular'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
-               </ng-container>
-            </div>
-            <div class="col-md-6 col">
-               <label for="emailCliente" class="form-label">Email</label>
-               <input type="email" formControlName="emailCliente" id="emailCliente" class="form-control">
-               <ng-container *ngIf="clienteForm.controls['emailCliente'].touched">
-                  <span *ngIf="clienteForm.controls['emailCliente'].errors?.['required']" class="position-absolute form-text text-danger">Preencha este campo</span>
-                  <span *ngIf="clienteForm.controls['emailCliente'].errors?.['email']" class="position-absolute form-text text-danger">Digite um email válido</span>
-               </ng-container>
-            </div>
-         </div>
-         <div class="mt-4">
-            <button class="btn btn-primary" [disabled]="!clienteForm.valid" *ngIf="operacao==='adicionar'" (click)="adicionar()">Salvar</button>
-            <button class="btn btn-primary" [disabled]="!clienteForm.valid" *ngIf="operacao=='editar'" (click)="editar()">Salvar</button>
-            <button class="btn btn-danger" *ngIf="operacao=='remover'" (click)="remover()">Excluir</button>
-            <button class="btn btn-secondary m-2" *ngIf="operacao=='detalhes'" routerLink="/cliente">Voltar</button>
-            <button class="btn btn-secondary m-2" *ngIf="operacao!=='detalhes'" routerLink="/cliente">Cancelar</button>
-         </div>
-      </form>
-   </div>
+        </form>
+    </div>
