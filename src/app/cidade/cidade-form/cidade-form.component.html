@@ -6,42 +6,34 @@
                     <label for="id" class="form-label">Código</label>
                     <input type="text" id="id" formControlName="id" readonly class="form-control">
                 </div>
-
                 <div class="col-md-7">
                     <label for="cidade" class="form-label">Cidade</label>
-                    <input type="text" id="cidade" formControlName="cidade" class="form-control">
-                    <ng-container *ngIf="cidadeForm.controls['cidade'].touched">
-                        <span *ngIf="cidadeForm.controls['cidade'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
-                    </ng-container>
+                    <input type="text" id="cidade" formControlName="cidade" [ngClass]="aplicarCssCamposInvalidos('cidade')" class="form-control">
+                    <app-campo-control-invalid [mostrarErro]="verificarCampoInvalid('cidade')" msgErro="Cidade obrigatório!"></app-campo-control-invalid>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-3">
                     <label for="estado" class="form-label">Estados</label>
-                    <select name="estado" formControlName="estado" class="form-select" required id="estado">
+                    <select name="estado" formControlName="estado" class="form-select" [ngClass]="aplicarCssCamposInvalidos('estado')" id="estado">
                         <option value="selecionar" selected disabled>Selecionar</option>
                         <option value="MG">MG</option>
                         <option value="SP">SP</option>
                         <option value="RJ">RJ</option>
                     </select>
-                    <ng-container *ngIf="cidadeForm.controls['estado'].touched">
-                        <span *ngIf="cidadeForm.controls['estado'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
-                    </ng-container>
-                </div>
+                    <app-campo-control-invalid [mostrarErro]="verificarCampoInvalid('estado')" msgErro="Estado obrigatório!"></app-campo-control-invalid>
 
+                </div>
                 <div class="col-md-3">
                     <label for="ibge" class="form-label text-nowrap">Código IBGE</label>
-                    <input type="text" formControlName="ibge" id="ibge" class="form-control">
-                    <ng-container *ngIf="cidadeForm.controls['ibge'].touched">
-                        <span *ngIf="cidadeForm.controls['ibge'].errors" class="position-absolute form-text text-danger">Preencha este campo</span>
-                    </ng-container>
+                    <input type="text" formControlName="ibge" id="ibge" [ngClass]="aplicarCssCamposInvalidos('ibge')" class="form-control">
+                    <app-campo-control-invalid [mostrarErro]="verificarCampoInvalid('ibge')" msgErro="IBGE obrigatório!"></app-campo-control-invalid>
                 </div>
             </div>
-
             <div class="mt-4">
-                <button class="btn btn-primary" [disabled]="!cidadeForm.valid" *ngIf="operacao === 'adicionar'" (click)="adicionar()">Salvar</button>
-                <button class="btn btn-primary" [disabled]="!cidadeForm.valid" *ngIf="operacao === 'editar'" (click)="editar()">Salvar</button>
+                <button class="btn btn-primary" *ngIf="operacao === 'adicionar'" (click)="adicionar()">Salvar</button>
+                <button class="btn btn-primary" *ngIf="operacao === 'editar'" (click)="editar()">Salvar</button>
                 <button class="btn btn-danger" *ngIf="operacao==='remover'" (click)="remover()">Excluir</button>
                 <button class="btn btn-secondary m-2" *ngIf="operacao === 'detalhes'" routerLink="/cidade">Voltar</button>
                 <button class="btn btn-secondary m-2" *ngIf="operacao !== 'detalhes'" routerLink="/cidade">Cancelar</button>

@@ -7,16 +7,17 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 import { ClienteService } from '../clienteServices/cliente.service';
 import { Cliente } from '../models/Cliente';
 import { Cidade } from '../../cidade/models/Cidade';
 import { CidadeService } from '../../cidade/cidadeServices/cidade.service';
 import { IFormCanDeactivate } from '../../guards/iform-candeactivate';
-import { PesquisaCidadeModalComponent } from '../../shared/pesquisa-cidade-modal/pesquisa-cidade-modal.component';
-import { MatDialog } from '@angular/material/dialog';
-import { SharedService } from '../../shared/sharedServices/shared.service';
+
 import { Subscription } from 'rxjs';
+import { ValidarInputsService } from '../../shared/sharedServices/validar-inputs.service';
+import { PesquisaCidadeModalComponent } from '../../modalPesquisaCidade/pesquisa-cidade-modal/pesquisa-cidade-modal.component';
 
 @Component({
     selector: 'app-cliente-form',
@@ -45,7 +46,7 @@ export class ClienteFormComponent implements OnInit, OnDestroy, IFormCanDeactiva
         private _route: ActivatedRoute,
         private _router: Router,
         private dialog: MatDialog,
-        private _sharedService: SharedService
+        private _validarInputs : ValidarInputsService
     ) 
     {
         this.clienteForm = this._formBuilder.group({
@@ -60,7 +61,7 @@ export class ClienteFormComponent implements OnInit, OnDestroy, IFormCanDeactiva
             bairro: ['', Validators.required],
             numeroTelefone: ['', Validators.required],
             numeroCelular: ['', Validators.required],
-            emailCliente: ['', [Validators.required, Validators.email]],
+            email: ['', [Validators.required, Validators.email]],
         });
     }
 
@@ -114,7 +115,8 @@ export class ClienteFormComponent implements OnInit, OnDestroy, IFormCanDeactiva
         } 
         else 
         {
-            alert('Preencha todos os campos');
+            this._validarInputs.verificarValidacoesForm(this.clienteForm)
+            alert('Preencha todos os campos obrigatório');
             return false;
         }
     }
@@ -181,6 +183,21 @@ export class ClienteFormComponent implements OnInit, OnDestroy, IFormCanDeactiva
         this.obterCidade(this.idCidadeSelecionada)
         this.clienteForm.get('codigoCidade')?.setValue(this.idCidadeSelecionada);
         this.dialog.closeAll();
+    }
+
+    verificarCampoInvalid(campo: string)
+    {
+        return this._validarInputs.verificarValidTouch(this.clienteForm, campo);
+    }
+
+    verificarCampoEmail()
+    {
+        return this._validarInputs.verificarEmailInvalido(this.clienteForm)
+    }
+
+    aplicarCssCamposInvalidos(campo: string)
+    {
+        return this._validarInputs.aplicaCssErro(this.clienteForm, campo)
     }
 
     async ngOnInit() 

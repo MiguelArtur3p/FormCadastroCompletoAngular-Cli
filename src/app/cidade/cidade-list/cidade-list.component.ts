@@ -6,7 +6,7 @@ import { CidadeService } from '../cidadeServices/cidade.service';
 import { ClienteService } from '../../cliente/clienteServices/cliente.service';
 
 @Component({
-    selector: 'app-cidade-list',
+    selector: 'cidade-list',
     templateUrl: './cidade-list.component.html',
     styleUrl: './cidade-list.component.css',
 })

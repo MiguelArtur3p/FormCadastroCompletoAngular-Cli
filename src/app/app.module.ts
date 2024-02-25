@@ -6,12 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuLateralModule } from './menu-lateral/menu-lateral.module';
 import { RouterModule } from '@angular/router';
-import { UsuarioService } from './usuario/services/usuario.service';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { SharedModule } from './shared/shared.module';
-import { CidadeService } from './cidade/cidadeServices/cidade.service';
-import { SharedService } from './shared/sharedServices/shared.service';
-import { ClienteService } from './cliente/clienteServices/cliente.service';
+import { ModalPesquisaCidadeModule } from './modalPesquisaCidade/modal-pesquisa-cidade.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -23,9 +19,9 @@ import { ClienteService } from './cliente/clienteServices/cliente.service';
         ReactiveFormsModule,
         RouterModule,
         MatSlideToggleModule,
-        SharedModule
+        ModalPesquisaCidadeModule
     ],
+    exports:[],
     bootstrap: [AppComponent],
-    providers: [UsuarioService, CidadeService, SharedService, ClienteService],
 })
 export class AppModule { }
