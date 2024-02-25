@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PesquisaCidadeModalComponent } from './pesquisa-cidade-modal/pesquisa-cidade-modal.component';
 import { CidadeModule } from '../cidade/cidade.module';
+import { PesquisaCidadeModalComponent } from './pesquisa-cidade-modal/pesquisa-cidade-modal.component';
+
 
 
 
@@ -11,5 +12,6 @@ import { CidadeModule } from '../cidade/cidade.module';
     CommonModule,
     CidadeModule
   ],
+  exports:[]
 })
-export class SharedModule { }
+export class ModalPesquisaCidadeModule { }

@@ -3,7 +3,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class SharedService 
+export class ModalPesquisaCidadeService 
 {
   idCidadeSelecionadaEmitter = new EventEmitter<string>();
 
