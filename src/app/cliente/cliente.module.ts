@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClienteListComponent } from './cliente-list/cliente-list.component';
 import { ClienteRoutingModule } from './clienteRotas/cliente.routing.module';
 import { CampoControlInvalidModule } from '../shared/ContenteCampoInvalid/campo-control-invalid.module';
+import { CidadeModule } from '../cidade/cidade.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CampoControlInvalidModule } from '../shared/ContenteCampoInvalid/campo-
         FormsModule,
         ReactiveFormsModule,
         ClienteRoutingModule,
-        CampoControlInvalidModule
+        CampoControlInvalidModule,
+        CidadeModule
     ],
     exports: [ClienteFormComponent, ClienteListComponent],
 })

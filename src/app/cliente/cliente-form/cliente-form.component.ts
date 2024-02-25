@@ -169,12 +169,18 @@ export class ClienteFormComponent implements OnInit, OnDestroy, IFormCanDeactiva
 
     openDialog() 
     {
-        const dialogRef = this.dialog.open(PesquisaCidadeModalComponent);
         this._clienteService.emitirEventoAbrirModal(true);
+        // const dialogRef = this.dialog.open(PesquisaCidadeModalComponent);
+        // 
+        // dialogRef.afterClosed().subscribe((result: any) => {
+        //     
+        // });
+    }
 
-        dialogRef.afterClosed().subscribe((result: any) => {
-            this._clienteService.emitirEventoAbrirModal(false);
-        });
+    fecharModal()
+    {
+        this._clienteService.emitirEventoAbrirModal(false);
+        return
     }
 
     definirIdCidade() 
@@ -182,7 +188,7 @@ export class ClienteFormComponent implements OnInit, OnDestroy, IFormCanDeactiva
         if (!this.idCidadeSelecionada) return;
         this.obterCidade(this.idCidadeSelecionada)
         this.clienteForm.get('codigoCidade')?.setValue(this.idCidadeSelecionada);
-        this.dialog.closeAll();
+        // this.dialog.closeAll();
     }
 
     verificarCampoInvalid(campo: string)

@@ -119,6 +119,8 @@ export class CidadeFormComponent implements OnInit, IFormCanDeactivate
         
     }
 
+    
+
     aplicarCssCamposInvalidos(campo: string)
     {
         return this._validarInputs.aplicaCssErro(this.cidadeForm,campo)

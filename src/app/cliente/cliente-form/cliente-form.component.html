@@ -27,7 +27,7 @@
                     <label for="codigoCidade" class="form-label text-nowrap">Código da Cidade</label>
                     <div class="input-group">
                         <input type="number" id="codigoCidade" #inputCodigoCidade formControlName="codigoCidade" aria-describedby="modalPesquisarCidade" min="1" (input)="obterCidade(inputCodigoCidade.value)" [ngClass]="aplicarCssCamposInvalidos('codigoCidade')" class="form-control">
-                        <button type="button" (click)="openDialog()" id="modalPesquisarCidade" class="btn btn-outline-secondary">
+                        <button type="button" (click)="openDialog()" id="modalPesquisarCidade" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalPesquisaCidade">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                             </svg>
@@ -97,4 +97,22 @@
                 <button class="btn btn-secondary m-2" *ngIf="operacao!=='detalhes'" routerLink="/cliente">Cancelar</button>
             </div>
         </form>
+    </div>
+
+    <!-- modal -->
+
+    <div class="modal fade" id="modalPesquisaCidade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 50vw; height: 60vh;">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <cidade-list></cidade-list>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="fecharModal()" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>

@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { MenuLateralModule } from './menu-lateral/menu-lateral.module';
 import { RouterModule } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { ModalPesquisaCidadeModule } from './modalPesquisaCidade/modal-pesquisa-cidade.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -19,7 +18,7 @@ import { ModalPesquisaCidadeModule } from './modalPesquisaCidade/modal-pesquisa-
         ReactiveFormsModule,
         RouterModule,
         MatSlideToggleModule,
-        ModalPesquisaCidadeModule
+        
     ],
     exports:[],
     bootstrap: [AppComponent],
